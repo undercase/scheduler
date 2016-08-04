@@ -1,6 +1,5 @@
 """
-Scheduler
-Export UNT schedules to iCalendar format (.ics)
+File that handles interfacing with iCalendar
 """
 
 import icalendar
