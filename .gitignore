@@ -1,3 +1,6 @@
+# VIM
+.gitignore
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -81,6 +84,9 @@ celerybeat-schedule
 # virtualenv
 venv/
 ENV/
+bin/
+include/
+pip-selfcheck.json
 
 # Spyder project settings
 .spyderproject
