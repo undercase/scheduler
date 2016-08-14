@@ -8,6 +8,11 @@ import getpass
 
 from selenium import webdriver
 
+class Class:
+    def __init__(name, time):
+        self.name = name
+        self.time = time
+
 def scrape():
     browser = webdriver.Chrome('/home/lowercase/Desktop/scheduler/chromedriver')
     browser.get('https://my.unt.edu/psp/papd01/EMPLOYEE/EMPL/h/?tab=NTPA_GUEST')
@@ -17,9 +22,25 @@ def scrape():
 
     euid_field = browser.find_element_by_name('userid')
     password_field = browser.find_element_by_name('pwd')
-
     euid_field.send_keys(euid)
     password_field.send_keys(password)
+
+    login_field = browser.find_element_by_css_selector('input[value="Login"]')
+    login_field.click()
+
+    browser.get('https://my.unt.edu/psp/papd01/EMPLOYEE/EMPL/h/?cmd=getCachedPglt&pageletname=GBPA_STUDENT_CLASSES&tab=GBPA_STUDENT&PORTALPARAM_COMPWIDTH=Narrow')
+
+    classes = browser.find_elements_by_css_selector('p')
+    classes = format(classes)
+
+def format(classes):
+    formatted_classes = []
+    for period in classes:
+        lines = period.text.split('\n')
+        name = lines[1]
+        class_time = lines[2]
+        formatted_classes.append(Class(name, class_time))
+    return formatted_classes
 
 if __name__ == "__main__":
     scrape()
