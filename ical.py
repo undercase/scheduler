@@ -5,7 +5,7 @@ from icalendar import Calendar, Event
 
 def make_calendar(classes):
     calendar = Calendar()
-    calendar.add('prodid', '-//UNT Schedule Exporter//mxm.dk//')
+    calendar.add('prodid', '-//UNT Schedule Exporter//undercase//')
     calendar.add('version', '1.0')
 
     for period in classes:

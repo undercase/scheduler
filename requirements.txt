@@ -2,3 +2,4 @@ icalendar==3.10
 python-dateutil==2.5.3
 pytz==2016.6.1
 six==1.10.0
+selenium==3.0.0b2
