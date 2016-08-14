@@ -16,7 +16,7 @@ CONFIGURING ChromeDriver
 
 Be sure to set the variable chrpath to the location of
 the "chromedriver" executable on your computer.
-""
+"""
 
 chrpath = '/path/to/chromedriver'
 
