@@ -8,7 +8,7 @@ Scheduler is divided into three Python files:
 
 2. *scraper.py* - Contains a class to facilitate scraping the UNT website for scheduling information.
 
-3. *calendar.py* - Interfaces with iCalendar to build a .ics file.
+3. *ical.py* - Interfaces with iCalendar to build a .ics file.
 
 There are three working branches:
 
