@@ -6,6 +6,8 @@ import sys
 import getpass
 
 from datetime import datetime
+from datetime import date
+from datetime import timedelta
 
 from selenium import webdriver
 
@@ -61,16 +63,20 @@ def parse_times(classes):
                 days.append(term)
             elif term != '-':
                 times.append(term)
-        parsed_classes.append([days, times])
+        parsed_classes.append([period.name, days, times])
     return parsed_classes
 
 def build_datetimes(classes):
     built_datetimes = []
     for period in classes:
-        for day in period[0]:
-            start_dt = datetime.strptime('%s %s' % (day_map[day], period[1][-2]), '%A %I:%M%p')
-            end_dt = datetime.strptime('%s %s' % (day_map[day], period[1][-1]), '%A %I:%M%p')
-            built_datetimes.append([start_dt, end_dt])
+        for day in period[1]:
+            d = date.today()
+            wanted = datetime.strptime('%s' % day_map[day], '%A')
+            while d.weekday() != wanted.weekday():
+                d += timedelta(1)
+            start_dt = datetime.combine(d, datetime.strptime('%s' % period[2][-2], '%I:%M%p').time())
+            end_dt = datetime.combine(d, datetime.strptime('%s' % period[2][-1], '%I:%M%p').time())
+            built_datetimes.append([period[0], start_dt, end_dt])
     return built_datetimes
 
 if __name__ == "__main__":
