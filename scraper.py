@@ -11,6 +11,15 @@ from datetime import timedelta
 
 from selenium import webdriver
 
+"""
+CONFIGURING ChromeDriver
+
+Be sure to set the variable chrpath to the location of
+the "chromedriver" executable on your computer.
+"""
+
+chrpath = '/Users/jeffrey/Documents/Development/scheduler/chromedriver_mac64'
+
 day_map = {
     'Mo': 'Monday',
     'Tu': 'Tuesday',
@@ -33,9 +42,9 @@ class Class:
         self.time = time
 
 def scrape():
-    browser = webdriver.Chrome('/home/lowercase/Desktop/scheduler/chromedriver')
+    browser = webdriver.Chrome(chrpath)
     browser.get('https://my.unt.edu/psp/papd01/EMPLOYEE/EMPL/h/?tab=NTPA_GUEST')
-    
+
     euid = input('What is your EUID? ')
     password = getpass.getpass('What is your password? ')
 
