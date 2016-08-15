@@ -15,19 +15,19 @@ from selenium import webdriver
 Configuring ChromeDriver
 Be sure to properly configure ChromeDriver by selecting your OS version below:
 
-os = these values: {'windows', 'mac', 'linux'}
+opsys = these values: {'windows', 'mac', 'linux'}
 """
 
-#os = 'windows'
-os = 'mac'
-#os = 'linux32'
-#os = 'linux64'
+#opsys = 'windows'
+opsys = 'mac'
+#opsys = 'linux32'
+#opsys = 'linux64'
 
-if os == 'windows':
+if opsys == 'windows':
     cdname = 'chromedriver_win32.exe'
-elif os == 'mac':
+elif opsys == 'mac':
     cdname = 'chromedriver_mac64'
-elif os == 'linux32':
+elif opsys == 'linux32':
     cdname = 'chromedriver_linux32'
 else:
     cdname = 'chromedriver_linux64'
