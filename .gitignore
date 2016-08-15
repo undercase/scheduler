@@ -93,3 +93,6 @@ pip-selfcheck.json
 
 # Rope project settings
 .ropeproject
+
+# scheduler project files
+UNT_schedule.ics

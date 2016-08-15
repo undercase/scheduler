@@ -18,7 +18,7 @@ Be sure to set the variable chrpath to the location of
 the "chromedriver" executable on your computer.
 """
 
-chrpath = '/path/to/chromedriver'
+chrpath = '/Users/jeffrey/Documents/Development/scheduler/chromedriver_mac64'
 
 day_map = {
     'Mo': 'Monday',
@@ -36,7 +36,7 @@ class Class:
 def scrape():
     browser = webdriver.Chrome(chrpath)
     browser.get('https://my.unt.edu/psp/papd01/EMPLOYEE/EMPL/h/?tab=NTPA_GUEST')
-    
+
     euid = input('What is your EUID? ')
     password = getpass.getpass('What is your password? ')
 
