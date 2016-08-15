@@ -3,6 +3,7 @@ Interface for web scraping
 """
 import os
 import sys
+from sys import platform as _platform
 import getpass
 
 from datetime import datetime
@@ -18,19 +19,14 @@ Be sure to properly configure ChromeDriver by selecting your OS version below:
 opsys = these values: {'windows', 'mac', 'linux'}
 """
 
-#opsys = 'windows'
-opsys = 'mac'
-#opsys = 'linux32'
-#opsys = 'linux64'
+opsys = {
+    'windows': 'chromedriver_win32.exe',
+    'darwin': 'chromedriver_mac64',
+    'linux32': 'chromedriver_linux32',
+    'linux': 'chromedriver_linux64'
+}
 
-if opsys == 'windows':
-    cdname = 'chromedriver_win32.exe'
-elif opsys == 'mac':
-    cdname = 'chromedriver_mac64'
-elif opsys == 'linux32':
-    cdname = 'chromedriver_linux32'
-else:
-    cdname = 'chromedriver_linux64'
+cdname = opsys[_platform]
 
 day_map = {
     'Mo': 'Monday',
@@ -54,6 +50,7 @@ class Class:
         self.time = time
 
 def scrape():
+    print((os.path.dirname(os.path.abspath(__file__)) + '/' + cdname))
     browser = webdriver.Chrome(os.path.dirname(os.path.abspath(__file__)) + '/' + cdname)
     browser.get('https://my.unt.edu/psp/papd01/EMPLOYEE/EMPL/h/?tab=NTPA_GUEST')
 
