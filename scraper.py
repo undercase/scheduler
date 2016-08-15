@@ -24,7 +24,7 @@ os = 'mac'
 #os = 'linux64'
 
 if os == 'windows':
-    cdname = 'chromedriver_win32'
+    cdname = 'chromedriver_win32.exe'
 elif os == 'mac':
     cdname = 'chromedriver_mac64'
 elif os == 'linux32':
