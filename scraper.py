@@ -40,6 +40,14 @@ day_map = {
     'Fr': 'Friday'
 }
 
+day_numbers = {
+    'Mo': 0,
+    'Tu': 1,
+    'We': 2,
+    'Th': 3,
+    'Fr': 4
+}
+
 class Class:
     def __init__(self, name, time):
         self.name = name
@@ -92,9 +100,11 @@ def build_datetimes(classes):
     for period in classes:
         for day in period[1]:
             d = date.today()
-            wanted = datetime.strptime('%s' % day_map[day], '%A')
-            while d.weekday() != wanted.weekday():
-                d += timedelta(1)
+            days_ahead = day_numbers[day] - d.weekday()
+            if days_ahead <= 0:
+                days_ahead += 7
+            d += timedelta(days_ahead)
+            print(d.weekday())
             start_dt = datetime.combine(d, datetime.strptime('%s' % period[2][-2], '%I:%M%p').time())
             end_dt = datetime.combine(d, datetime.strptime('%s' % period[2][-1], '%I:%M%p').time())
             built_datetimes.append([period[0], start_dt, end_dt])
