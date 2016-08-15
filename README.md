@@ -8,8 +8,7 @@ Python 3 is needed. Dependencies will be installed through pip. It is highly rec
 ### Procedure
 0. (Highly recommended) Create a virtualenv (`$ virtualenv venv`) and then `$ source venv/bin/activate`.
 1. Install dependencies through `$ pip3 install -r requirements.txt`.
-2. Select the proper OS by going into `scraper.py` and uncommenting the line with your operating system. For example, if you were using 64-bit Linux, uncomment the line `opsys = 'linux64'` and comment out everything else. The default is `opsys = 'mac'`; comment it out if you don't use macOS.
-3. Run with `$ python3 main.py`. If you see a browser window open, **don't disrupt it**. Instead, enter your EUID and password through the terminal. Your information will be securely routed to that browser window so the script can retrieve your schedule through myUNT.
+2. Run with `$ python3 main.py`. If you see a browser window open, **don't disrupt it**. Instead, enter your EUID and password through the terminal. Your information will be securely routed to that browser window so the script can retrieve your schedule through myUNT.
 
 ## Development
 Scheduler was written by Thomas Hobohm (@undercase) with assistance provided by Jeffrey Wang (@jeffw16) and Garrett Gu (@garrettgu10).
